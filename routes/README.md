@@ -21,6 +21,7 @@
     "skills": "",
     "details": "",
     "tags": [""],
+    "enabled": true,
     "createdAt": "",
     "updatedAt": "",
   },

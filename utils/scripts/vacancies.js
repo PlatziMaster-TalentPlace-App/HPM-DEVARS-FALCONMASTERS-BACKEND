@@ -1,9 +1,9 @@
-const VacanciesServices = require('../../services/vacancies');
+const VacanciesService = require('../../services/vacancies');
 
-const vacanciesServices = new VacanciesServices();
+const vacanciesService = new VacanciesService();
 
 const main = async function () {
-  const a = await vacanciesServices.createVacant({
+  const a = await vacanciesService.createVacant({
     branch: 'Backend',
   });
   console.log(a);

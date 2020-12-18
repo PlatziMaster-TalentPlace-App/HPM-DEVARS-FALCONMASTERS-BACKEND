@@ -15,6 +15,10 @@ const vacanciesSchema = new Schema({
   skills: String,
   details: String,
   tags: [String],
+  status: {
+    type: Boolean,
+    default: true,
+  },
   createdAt: {
     type: Date,
     default: Date.now(),

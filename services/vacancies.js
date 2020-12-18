@@ -8,10 +8,11 @@ const DB_NAME = config.dbName;
 
 const { vacanciesModel } = require('../utils/schemas/vacancies');
 
-class VacanciesServices {
+class VacanciesService {
   constructor() {
     mongoose.connect(
-      `mongodb+srv://${USER}:${PASSWORD}@${HOST}/${DB_NAME}?retryWrites=true&w=majority`
+      `mongodb+srv://${USER}:${PASSWORD}@${HOST}/${DB_NAME}?retryWrites=true&w=majority`,
+      { useNewUrlParser: true, useUnifiedTopology: true }
     );
     this.db = mongoose.connection;
   }
@@ -23,4 +24,4 @@ class VacanciesServices {
   }
 }
 
-module.exports = VacanciesServices;
+module.exports = VacanciesService;
