@@ -22,7 +22,7 @@ const main = async function () {
     urlImage:
       'https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/Platzi.jpg/1920px-Platzi.jpg',
     position: 'DESAROLLADOR FRONTEND',
-    salary: '100,000',
+    salary: 100000,
     coin: 'MXN',
     requirements: 'Estudiar en Platzi Master',
     skills:

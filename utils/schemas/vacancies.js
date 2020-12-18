@@ -9,13 +9,13 @@ const vacanciesSchema = new Schema({
   company: String,
   urlImage: String,
   position: String,
-  salary: String,
+  salary: Number,
   coin: String,
   requirements: String,
   skills: String,
   details: String,
   tags: [String],
-  status: {
+  enabled: {
     type: Boolean,
     default: true,
   },

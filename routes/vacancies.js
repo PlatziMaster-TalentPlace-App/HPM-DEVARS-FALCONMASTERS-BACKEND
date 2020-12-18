@@ -8,10 +8,20 @@ function vacanciesApi(app) {
   const vacanciesService = new VacanciesService();
 
   router.get('/', async function (req, res, next) {
-    const { position, country, smax, smin } = req.query;
+    const { branch, country, smax, smin, enabled, page, limit } = req.query;
+    const vacancies = await vacanciesService.getVacancies({
+      branch,
+      country,
+      smax,
+      smin,
+      enabled,
+      page,
+      limit,
+    });
+
     try {
       res.status(200).json({
-        data: 'test',
+        data: vacancies,
         message: 'vacancies retrieved',
       });
     } catch (error) {
@@ -20,9 +30,12 @@ function vacanciesApi(app) {
   });
 
   router.get('/:vacantId', async function (req, res, next) {
+    const { vacantId } = req.params;
+    const vacant = await vacanciesService.getVacant(vacantId);
+
     try {
       res.status(200).json({
-        data: 'test',
+        data: vacant,
         message: 'vacant retrieved',
       });
     } catch (error) {

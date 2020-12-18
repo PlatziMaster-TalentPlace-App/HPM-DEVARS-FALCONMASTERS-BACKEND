@@ -3,6 +3,8 @@ const cors = require('cors');
 const helmet = require('helmet');
 const config = require('../config');
 
+const notFoundHandler = require('../middlewares/notFoundHandler');
+
 const vacanciesApi = require('../routes/vacancies');
 
 const app = express();
@@ -14,6 +16,9 @@ app.use(express.json());
 
 // Routes
 vacanciesApi(app);
+
+// Catch 404
+app.use(notFoundHandler);
 
 app.listen(config.port, function () {
   console.log(`Listening http://localhost:${config.port}`);

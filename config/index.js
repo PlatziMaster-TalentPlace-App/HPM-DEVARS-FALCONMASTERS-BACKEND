@@ -12,6 +12,7 @@ const config = {
     users: 'users',
     vacancies: 'vacancies',
   },
+  dbLimit: 10,
 };
 
 module.exports = config;
