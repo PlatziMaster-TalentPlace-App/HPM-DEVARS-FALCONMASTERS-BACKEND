@@ -1,8 +1,8 @@
 # Routes
 
-## Vacants Api
+## Vacancies Api
 
-### Route `/api/vacants`
+### Route `/api/vacancies`
 
 #### GET
 
@@ -10,14 +10,19 @@
 {
   "data": {
     "id": "",
+    "branch": "",
+    "country": "",
+    "company":"",
     "urlImage": "",
-    "name": "",
+    "position": "",
     "salary": "",
     "coin": "",
     "requirements": "",
     "skills": "",
     "details": "",
-    "tags": [""]
+    "tags": [""],
+    "createdAt": "",
+    "updatedAt": "",
   },
   "massage": ""
 }
