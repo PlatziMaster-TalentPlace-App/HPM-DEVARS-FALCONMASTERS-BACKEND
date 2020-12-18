@@ -1,18 +1,19 @@
 # HPM-DEVARS-FALCONMASTERS-BACKEND
 
-## Techologies to use:
+## Techologies to use
 
 - NodeJS
 - Express
 
-## Database:
+## Database
 
 - MongoDB
 
 ## Deploy
 
-- Heroku
+- Vercel
 
 ## documentation
 
-- comming soon
+- [Routes](/routes)
+- [Services](/services)

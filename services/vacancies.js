@@ -37,7 +37,6 @@ class VacanciesService {
     if (typeof enabled !== 'undefined') query.enabled = enabled == 'true';
     limit = limit ? limit : config.dbLimit;
 
-    console.log(query);
     const vacancies = await vacanciesModel
       .find(query)
       .skip(page ? parseInt(page) * parseInt(limit) : 0)
