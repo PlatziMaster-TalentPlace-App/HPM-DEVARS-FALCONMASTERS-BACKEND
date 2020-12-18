@@ -8,7 +8,18 @@ function vacantsApi(app) {
     try {
       res.status(200).json({
         data: 'test',
-        message: 'test',
+        message: 'vacants retrieved',
+      });
+    } catch (error) {
+      next(error);
+    }
+  });
+
+  router.get('/:vacantId', async function (req, res, next) {
+    try {
+      res.status(200).json({
+        data: 'test',
+        message: 'vacants retrieved',
       });
     } catch (error) {
       next(error);
