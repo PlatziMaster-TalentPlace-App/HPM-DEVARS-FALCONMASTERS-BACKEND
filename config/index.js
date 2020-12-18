@@ -10,7 +10,7 @@ const config = {
   dbName: process.env.DB_NAME,
   dbCollections: {
     users: 'users',
-    vacant: 'vacant',
+    vacancies: 'vacancies',
   },
 };
 

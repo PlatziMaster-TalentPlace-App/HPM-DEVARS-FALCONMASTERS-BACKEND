@@ -3,7 +3,7 @@ const cors = require('cors');
 const helmet = require('helmet');
 const config = require('../config');
 
-const vacantsApi = require('../routes/vacants');
+const vacanciesApi = require('../routes/vacancies');
 
 const app = express();
 
@@ -13,7 +13,7 @@ app.use(cors());
 app.use(express.json());
 
 // Routes
-vacantsApi(app);
+vacanciesApi(app);
 
 app.listen(config.port, function () {
   console.log(`Listening http://localhost:${config.port}`);
