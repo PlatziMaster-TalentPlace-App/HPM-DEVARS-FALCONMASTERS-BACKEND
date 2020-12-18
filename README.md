@@ -3,6 +3,16 @@
 ## Techologies to use:
 
 - NodeJS
-- MongoDB
 - Express
 
+## Database:
+
+- MongoDB
+
+## Deploy
+
+- Heroku
+
+## documentation
+
+- comming soon
