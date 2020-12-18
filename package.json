@@ -1,0 +1,37 @@
+{
+  "name": "HPM-DEVARS-FALCONMASTERS-BACKEND",
+  "version": "1.0.0",
+  "description": "Platzi Master TP ",
+  "main": "src/index.js",
+  "scripts": {
+    "dev": "DEBUG=app:* nodemon src/index",
+    "start": "NODE_ENV=production node src/index",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PlatziMaster-TalentPlace-App/HPM-DEVARS-FALCONMASTERS-BACKEND.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/PlatziMaster-TalentPlace-App/HPM-DEVARS-FALCONMASTERS-BACKEND/issues"
+  },
+  "homepage": "https://github.com/PlatziMaster-TalentPlace-App/HPM-DEVARS-FALCONMASTERS-BACKEND#readme",
+  "dependencies": {
+    "@hapi/boom": "^9.1.1",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "helmet": "^4.2.0",
+    "mongoose": "^5.11.8"
+  },
+  "devDependencies": {
+    "eslint": "^7.15.0",
+    "eslint-config-prettier": "^7.0.0",
+    "eslint-plugin-prettier": "^3.3.0",
+    "nodemon": "^2.0.6",
+    "prettier": "^2.2.1"
+  }
+}
