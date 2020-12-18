@@ -24,10 +24,10 @@ class VacanciesService {
   }
 
   async getVacancies({ branch, country, smax, smin, enabled, page, limit }) {
-    const query = {
-      branch,
-      country,
-    };
+    const query = {};
+    if (branch) query.branch = branch;
+    if (country) query.country = country;
+
     if (smin) query.salary = { $gt: parseInt(smin) };
     if (smax) {
       query.salary = query.salary
@@ -37,9 +37,10 @@ class VacanciesService {
     if (typeof enabled !== 'undefined') query.enabled = enabled == 'true';
     limit = limit ? limit : config.dbLimit;
 
+    console.log(query);
     const vacancies = await vacanciesModel
       .find(query)
-      .skip(parseInt(page ? page * limit : 0))
+      .skip(page ? parseInt(page) * parseInt(limit) : 0)
       .limit(parseInt(limit))
       .sort({ createdAt: 1 })
       .exec();
