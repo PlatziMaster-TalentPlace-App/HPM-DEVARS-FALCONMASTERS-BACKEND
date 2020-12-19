@@ -55,6 +55,20 @@ function applicationsApi(app) {
       next(err);
     }
   });
+
+  router.delete('/:applicationId', async function (req, res, next) {
+    const { userId } = req.params;
+
+    try {
+      const deleted = await applicationService.toogleApplication(userId);
+      res.status(201).json({
+        data: deleted,
+        message: 'application deleted',
+      });
+    } catch (err) {
+      next(err);
+    }
+  });
 }
 
 module.exports = applicationsApi;
