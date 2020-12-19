@@ -26,11 +26,7 @@ const vacanciesSchema = new Schema({
     default: true,
   },
   nameBoss: String,
-  emailBoss: {
-    type: String,
-    required: true,
-    unique: true,
-  },
+  emailBoss: String,
   applicantQuestion: String,
   author: {
     type: Schema.Types.ObjectId,

@@ -17,8 +17,8 @@ const app = express();
 
 // middlewares
 app.use(cors());
-app.use(express.json());
 app.use(helmet());
+app.use(express.json());
 
 // Routes
 vacanciesApi(app);
