@@ -1,20 +1,11 @@
-const mongoose = require('mongoose');
 const config = require('../config');
-
-const USER = encodeURIComponent(config.dbUser);
-const PASSWORD = encodeURIComponent(config.dbPassword);
-const HOST = config.dbHost;
-const DB_NAME = config.dbName;
+const database = require('../lib/mongodb/connect');
 
 const { applicationModel } = require('../utils/schemas/applications');
 
 class ApplicationService {
   constructor() {
-    mongoose.connect(
-      `mongodb+srv://${USER}:${PASSWORD}@${HOST}/${DB_NAME}?retryWrites=true&w=majority`,
-      { useNewUrlParser: true, useUnifiedTopology: true }
-    );
-    this.db = mongoose.connection;
+    this.db = database.connect(config.dbCollections.applications);
   }
 
   async createApplication(application) {
@@ -26,6 +17,7 @@ class ApplicationService {
   async getApplicationsByUsers({ userId, status, page, limit }) {
     const query = { userId: userId };
     if (status) query.status = status;
+    limit = limit ? limit : config.dbLimit;
 
     const applications = await applicationModel
       .find(query)
@@ -40,6 +32,16 @@ class ApplicationService {
   async getApplication(applicationId) {
     const application = await applicationModel.findById(applicationId).exec();
     return application;
+  }
+
+  async toogleApplication(_id) {
+    let user = await applicationModel.findById(_id).exec();
+    user = await applicationModel.findOneAndUpdate(
+      { _id },
+      { enabled: !user.enabled },
+      { new: true }
+    );
+    return user || false;
   }
 }
 
