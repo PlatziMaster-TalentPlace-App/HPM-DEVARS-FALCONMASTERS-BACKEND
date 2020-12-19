@@ -91,3 +91,69 @@ Response:
   "massage": "vacant retrieved"
 }
 ```
+
+## Users Api
+
+### Route `/api/users`
+
+#### POST
+
+body:
+
+```json
+{
+  "fistName": "Masterito",
+  "lastName": "Platzi",
+  "email": "masterito@platzi.com",
+  "branch": "FRONTEND",
+  "skills": ["React"],
+  "languages": ["Español", "Inglés"],
+  "github": "https://github.com/PlatziMaster-TalentPlace-App",
+  "linkedIn": "https://www.linkedin.com/in/PlatziMaster-TalentPlace-App",
+  "interests": ["React", "Frontend", "Remoto"],
+  "country": ["México"],
+  "mobility": "No",
+  "workExperience": "1 year as frontend",
+  "education": "2020 - Platzi Master",
+  "createdAt": "2020-12-18T00:00:01.000Z",
+  "updatedAt": "2020-12-18T00:00:01.000Z"
+}
+```
+
+Response:
+
+```json
+{
+  "data": "5fdce6fd6980241948bcfdf7",
+  "message": "user created"
+}
+```
+
+### Route `/api/users/:userId`
+
+#### GET
+
+Response:
+
+```json
+{
+  "data": {
+    "fistName": "Masterito",
+    "lastName": "Platzi",
+    "email": "masterito@platzi.com",
+    "branch": "FRONTEND",
+    "skills": ["React"],
+    "languages": ["Español", "Inglés"],
+    "github": "https://github.com/PlatziMaster-TalentPlace-App",
+    "linkedIn": "https://www.linkedin.com/in/PlatziMaster-TalentPlace-App",
+    "interests": ["React", "Frontend", "Remoto"],
+    "country": ["México"],
+    "mobility": "No",
+    "workExperience": "1 year as frontend",
+    "education": "2020 - Platzi Master",
+    "createdAt": "2020-12-18T00:00:01.000Z",
+    "updatedAt": "2020-12-18T00:00:01.000Z"
+  },
+  "message": "user retrieved"
+}
+```

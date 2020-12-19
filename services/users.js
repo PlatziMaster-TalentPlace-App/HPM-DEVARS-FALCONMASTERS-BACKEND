@@ -28,6 +28,7 @@ class UsersService {
 
     return user;
   }
+
   async getUser(userId) {
     const user = await userModel.findById(userId).exec();
     return user;
