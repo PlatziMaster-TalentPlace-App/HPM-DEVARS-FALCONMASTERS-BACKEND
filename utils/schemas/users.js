@@ -21,13 +21,17 @@ const userSchema = new Schema({
   mobility: String,
   workExperience: String,
   education: String,
+  enabled: {
+    type: Boolean,
+    default: true,
+  },
   createdAt: {
     type: Date,
-    default: Date.now(),
+    default: Date.now,
   },
   updatedAt: {
     type: Date,
-    default: Date.now(),
+    default: Date.now,
   },
 });
 

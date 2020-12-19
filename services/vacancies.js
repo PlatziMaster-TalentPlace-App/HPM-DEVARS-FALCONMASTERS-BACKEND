@@ -1,20 +1,11 @@
-const mongoose = require('mongoose');
 const config = require('../config');
-
-const USER = encodeURIComponent(config.dbUser);
-const PASSWORD = encodeURIComponent(config.dbPassword);
-const HOST = config.dbHost;
-const DB_NAME = config.dbName;
+const database = require('../lib/mongodb/connect');
 
 const { vacanciesModel } = require('../utils/schemas/vacancies');
 
 class VacanciesService {
   constructor() {
-    mongoose.connect(
-      `mongodb+srv://${USER}:${PASSWORD}@${HOST}/${DB_NAME}?retryWrites=true&w=majority`,
-      { useNewUrlParser: true, useUnifiedTopology: true }
-    );
-    this.db = mongoose.connection;
+    this.db = database.connect('Vacancies');
   }
 
   async createVacant(vacant) {
@@ -46,9 +37,26 @@ class VacanciesService {
 
     return vacancies;
   }
+
   async getVacant(vacantId) {
     const vacant = await vacanciesModel.findById(vacantId).exec();
     return vacant;
+  }
+
+  async updateVacant(_id, data) {
+    const vacant = await vacanciesModel.findOneAndUpdate({ _id }, data, { new: true, runValidators: true });
+    return vacant || false;
+  }
+
+  async toogleVacant(_id) {
+    let vacant = await vacanciesModel.findById(_id).exec();
+    vacant = await vacanciesModel.findOneAndUpdate({ _id }, { enabled: !vacant.enabled }, { new: true });
+    return vacant || false;
+  }
+
+  async filledVacant(_id, applicationId) {
+    const vacant = await vacanciesModel.findOneAndUpdate({ _id }, { filled: applicationId }, { new: true });
+    return vacant || false;
   }
 }
 

@@ -19,6 +19,11 @@ const vacanciesSchema = new Schema({
     type: Boolean,
     default: true,
   },
+  filled: {
+    type: Schema.Types.ObjectId,
+    ref: config.dbCollections.applications,
+    default: null,
+  },
   createdAt: {
     type: Date,
     default: Date.now(),
