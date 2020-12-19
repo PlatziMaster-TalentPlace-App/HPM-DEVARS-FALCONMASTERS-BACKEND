@@ -12,6 +12,10 @@ const config = {
     users: 'users',
     vacancies: 'vacancies',
     applications: 'applications',
+    companies: 'companies',
+    coaches: 'coaches',
+    checklists: 'checklists',
+    goals: 'goals',
   },
   dbLimit: 10,
 };
