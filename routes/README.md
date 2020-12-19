@@ -115,8 +115,6 @@ body:
   "mobility": "No",
   "workExperience": "1 year as frontend",
   "education": "2020 - Platzi Master",
-  "createdAt": "2020-12-18T00:00:01.000Z",
-  "updatedAt": "2020-12-18T00:00:01.000Z"
 }
 ```
 
