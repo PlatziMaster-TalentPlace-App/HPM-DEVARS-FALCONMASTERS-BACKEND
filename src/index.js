@@ -6,6 +6,8 @@ const config = require('../config');
 const notFoundHandler = require('../middlewares/notFoundHandler');
 
 const vacanciesApi = require('../routes/vacancies');
+const usersApi = require('../routes/users');
+const applicationsApi = require('../routes/applications');
 
 const app = express();
 
@@ -16,6 +18,8 @@ app.use(express.json());
 
 // Routes
 vacanciesApi(app);
+usersApi(app);
+applicationsApi(app);
 
 // Catch 404
 app.use(notFoundHandler);
