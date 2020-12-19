@@ -1,13 +1,11 @@
-const mongoose = require('mongoose');
 const config = require('../config');
-
 const database = require('../lib/mongodb/connect');
 
 const { vacanciesModel } = require('../utils/schemas/vacancies');
 
 class VacanciesService {
   constructor() {
-    this.db = database.connect();
+    this.db = database.connect('Vacancies');
   }
 
   async createVacant(vacant) {
