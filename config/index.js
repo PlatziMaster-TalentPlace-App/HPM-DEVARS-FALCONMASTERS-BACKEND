@@ -11,6 +11,7 @@ const config = {
   dbCollections: {
     users: 'users',
     vacancies: 'vacancies',
+    applications: 'applications',
   },
   dbLimit: 10,
 };
