@@ -21,19 +21,6 @@ const userSchema = new Schema({
   mobility: String,
   workExperience: String,
   education: String,
-  coachId: {
-    type: Schema.Types.ObjectId,
-    ref: config.dbCollections.coaches,
-    default: null,
-  },
-  masterStartDate: {
-    type: Date,
-    default: Date.now,
-  },
-  masterEndDate: {
-    type: Date,
-    default: Date.now,
-  },
   enabled: {
     type: Boolean,
     default: true,

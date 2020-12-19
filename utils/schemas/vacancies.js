@@ -15,27 +15,6 @@ const vacanciesSchema = new Schema({
   skills: String,
   details: String,
   tags: [String],
-  surveys: {
-    applicantStartUrl: String,
-    applicantEndUrl: String,
-    bossStartUrl: String,
-    bossEndUrl: String,
-  },
-  isRemote: {
-    type: Boolean,
-    default: true,
-  },
-  nameBoss: String,
-  emailBoss: {
-    type: String,
-    required: true,
-    unique: true,
-  },
-  applicantQuestion: String,
-  author: {
-    type: Schema.Types.ObjectId,
-    default: null,
-  },
   enabled: {
     type: Boolean,
     default: true,
@@ -45,18 +24,13 @@ const vacanciesSchema = new Schema({
     ref: config.dbCollections.applications,
     default: null,
   },
-  idCompany: {
-    type: Schema.Types.ObjectId,
-    ref: config.dbCollections.companies,
-    default: null,
-  },
   createdAt: {
     type: Date,
-    default: Date.now,
+    default: Date.now(),
   },
   updatedAt: {
     type: Date,
-    default: Date.now,
+    default: Date.now(),
   },
 });
 

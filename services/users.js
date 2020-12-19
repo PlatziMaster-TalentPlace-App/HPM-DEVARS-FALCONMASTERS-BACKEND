@@ -5,7 +5,7 @@ const { userModel } = require('../utils/schemas/users');
 
 class UsersService {
   constructor() {
-    this.db = database.connect(config.dbCollections.users);
+    this.db = database.connect('Users');
   }
 
   async createUser(user) {

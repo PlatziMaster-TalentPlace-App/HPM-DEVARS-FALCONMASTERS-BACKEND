@@ -5,7 +5,7 @@ const { vacanciesModel } = require('../utils/schemas/vacancies');
 
 class VacanciesService {
   constructor() {
-    this.db = database.connect(config.dbCollections.vacancies);
+    this.db = database.connect('Vacancies');
   }
 
   async createVacant(vacant) {
@@ -44,29 +44,18 @@ class VacanciesService {
   }
 
   async updateVacant(_id, data) {
-    const vacant = await vacanciesModel.findOneAndUpdate({ _id }, data, {
-      new: true,
-      runValidators: true,
-    });
+    const vacant = await vacanciesModel.findOneAndUpdate({ _id }, data, { new: true, runValidators: true });
     return vacant || false;
   }
 
   async toogleVacant(_id) {
     let vacant = await vacanciesModel.findById(_id).exec();
-    vacant = await vacanciesModel.findOneAndUpdate(
-      { _id },
-      { enabled: !vacant.enabled },
-      { new: true }
-    );
+    vacant = await vacanciesModel.findOneAndUpdate({ _id }, { enabled: !vacant.enabled }, { new: true });
     return vacant || false;
   }
 
   async filledVacant(_id, applicationId) {
-    const vacant = await vacanciesModel.findOneAndUpdate(
-      { _id },
-      { filled: applicationId },
-      { new: true }
-    );
+    const vacant = await vacanciesModel.findOneAndUpdate({ _id }, { filled: applicationId }, { new: true });
     return vacant || false;
   }
 }
