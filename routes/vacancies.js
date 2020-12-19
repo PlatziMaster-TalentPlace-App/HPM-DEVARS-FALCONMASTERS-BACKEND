@@ -55,6 +55,49 @@ function vacanciesApi(app) {
       next(err);
     }
   });
+
+  router.put('/:vacantId', async function (req, res, next) {
+    const { vacantId } = req.params;
+    const vacant = req.body;
+
+    try {
+      const updated = await vacanciesService.updateVacant(vacantId, vacant);
+      res.status(201).json({
+        data: updated,
+        message: 'vacant updated',
+      });
+    } catch (err) {
+      next(err);
+    }
+  });
+
+  router.delete('/:vacantId', async function (req, res, next) {
+    const { vacantId } = req.params;
+
+    try {
+      const deleted = await vacanciesService.toogleVacant(vacantId);
+      res.status(201).json({
+        data: deleted,
+        message: 'vacant updated',
+      });
+    } catch (err) {
+      next(err);
+    }
+  });
+
+  router.put('/:vacantId/:applicantionId', async function (req, res, next) {
+    const { vacantId, applicantionId } = req.params;
+
+    try {
+      const filled = await vacanciesService.filledVacant(vacantId, applicantionId);
+      res.status(201).json({
+        data: filled,
+        message: 'vacant filled',
+      });
+    } catch (err) {
+      next(err);
+    }
+  });
 }
 
 module.exports = vacanciesApi;
