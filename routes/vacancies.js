@@ -89,7 +89,10 @@ function vacanciesApi(app) {
     const { vacantId, applicantionId } = req.params;
 
     try {
-      const filled = await vacanciesService.filledVacant(vacantId, applicantionId);
+      const filled = await vacanciesService.filledVacant(
+        vacantId,
+        applicantionId
+      );
       res.status(201).json({
         data: filled,
         message: 'vacant filled',
