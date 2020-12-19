@@ -4,9 +4,11 @@
 
 ### Methods
 
-| Methods      | Params | Returns  | Description         |
-| ------------ | ------ | -------- | ------------------- |
-| createVacant | vacant | vacantId | create a new vacant |
+| Methods      | Params   | Returns  | Description         |
+| ------------ | -------- | -------- | ------------------- |
+| createVacant | `Object` | `String` | create a new vacant |
+| getVacancies | `Object` | `Array`  | get vacancies       |
+| getVacant    | `String` | `Object` | get a vacant        |
 
 #### createVacant
 
@@ -33,7 +35,45 @@ const main = async function () {
     enabled: true,
   });
 
-  console.log(vacantId);
+  console.log(vacantId); // 5fdce6fd6980241948bcfdf6
+};
+
+main();
+```
+
+#### getVacancies
+
+```js
+const VacanciesService = require('../services/vacancies');
+const vacanciesService = new VacanciesService();
+
+const main = async function () {
+  const vacancies = await vacanciesService.getVacancies({
+    branch: 'BACKEND',
+    country: 'México',
+    smax: 1000000,
+    smin: 10000,
+    enabled: true,
+    page: 0,
+    limit: 10,
+  });
+
+  console.log(vacancies);
+};
+
+main();
+```
+
+#### getVacant
+
+```js
+const VacanciesService = require('../services/vacancies');
+const vacanciesService = new VacanciesService();
+
+const main = async function () {
+  const vacant = await vacanciesService.getVacant('5fdce6fd6980241948bcfdf6');
+
+  console.log(vacant);
 };
 
 main();
